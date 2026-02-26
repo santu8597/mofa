@@ -671,7 +671,6 @@ impl LLMProvider for OpenAIProvider {
             .await
             .map_err(Self::convert_error)?;
 
-        // 转换流，过滤掉 UTF-8 错误（某些 OpenAI 兼容 API 可能返回无效的 UTF-8 数据）
         // Convert stream, filtering UTF-8 errors (some compatible APIs may return invalid data)
         let converted_stream = stream
             .filter_map(|result| async move {

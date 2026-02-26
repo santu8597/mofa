@@ -601,8 +601,7 @@ impl LLMAgent {
             let sess_store_clone = sess_store.clone();
 
             let session_uuid = uuid::Uuid::parse_str(&sid).unwrap_or_else(|_| {
-                tracing::warn!("⚠️ 无效的 session_id 格式 '{}', 将生成新的 UUID", sid);
-                // ⚠️ Invalid session_id format '{}', will generate new UUID
+                tracing::warn!("⚠️ Invalid session_id format '{}', will generate new UUID", sid);
                 uuid::Uuid::now_v7()
             });
 

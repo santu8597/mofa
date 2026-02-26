@@ -109,17 +109,14 @@ async fn main() -> anyhow::Result<()> {
     let agent_code = std::env::var("AGENT_CODE")
         .unwrap_or_else(|_| "chat-assistant".to_string());
     let user_id_str = std::env::var("USER_ID")
-        .expect("USER_ID 环境变量未设置");
-        // USER_ID environment variable is not set
+        .expect("USER_ID environment variable is not set");
     let tenant_id_str = std::env::var("TENANT_ID")
         .unwrap_or_else(|_| "00000000-0000-0000-0000-000000000000".to_string());
 
     let user_id = Uuid::parse_str(&user_id_str)
-        .expect("USER_ID 格式无效，需要 UUID 格式");
-        // Invalid USER_ID format, UUID format is required
+        .expect("Invalid USER_ID format, UUID format is required");
     let tenant_id = Uuid::parse_str(&tenant_id_str)
-        .expect("TENANT_ID 格式无效，需要 UUID 格式");
-        // Invalid TENANT_ID format, UUID format is required
+        .expect("Invalid TENANT_ID format, UUID format is required");
 
     info!("数据库地址: {}", database_url);
     // Database URL: {}

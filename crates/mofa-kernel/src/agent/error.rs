@@ -51,12 +51,10 @@ pub enum AgentError {
 
     #[error("Shutdown Failed: {0}")]
     ShutdownFailed(String),
-    /// 无效输入
     /// Invalid input
     #[error("Invalid input: {0}")]
     InvalidInput(String),
 
-    /// 无效输出
     /// Invalid output
     #[error("Invalid output: {0}")]
     InvalidOutput(String),

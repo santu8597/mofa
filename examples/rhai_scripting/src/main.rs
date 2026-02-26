@@ -690,12 +690,10 @@ async fn demo_advanced_features() -> Result<()> {
     let invalid_script = "let x = 1 + ; x * 3";
 
     let errors = engine.validate(valid_script)?;
-    info!("  有效脚本: {} (错误数: {})", valid_script, errors.len());
-    // Valid script: {} (error count: {})
+    info!("  Valid script: {} (error count: {})", valid_script, errors.len());
 
     let errors = engine.validate(invalid_script)?;
-    info!("  无效脚本: {} (错误: {:?})", invalid_script, errors);
-    // Invalid script: {} (errors: {:?})
+    info!("  Invalid script: {} (errors: {:?})", invalid_script, errors);
 
     // 5.3 脚本日志
     // 5.3 Script logs

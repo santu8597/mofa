@@ -54,13 +54,11 @@ impl TraceId {
         &self.0
     }
 
-    /// 是否有效（非全零）
     /// Whether it is valid (not all zeros)
     pub fn is_valid(&self) -> bool {
         self.0.iter().any(|&b| b != 0)
     }
 
-    /// 无效的 Trace ID
     /// Invalid Trace ID
     pub const INVALID: TraceId = TraceId([0u8; 16]);
 }
@@ -142,7 +140,6 @@ impl SpanId {
         self.0.iter().any(|&b| b != 0)
     }
 
-    /// 无效的 Span ID
     /// Invalid Span ID
     pub const INVALID: SpanId = SpanId([0u8; 8]);
 }
@@ -356,7 +353,6 @@ impl SpanContext {
         }
     }
 
-    /// 创建无效的 SpanContext
     /// Create an invalid SpanContext
     pub fn invalid() -> Self {
         Self {

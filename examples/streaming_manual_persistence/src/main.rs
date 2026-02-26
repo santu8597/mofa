@@ -48,11 +48,9 @@ async fn main() -> LLMResult<()> {
     // MoFA Streaming Conversation Manual Persistence Example
     info!("=============================================");
 
-    // 1. 获取配置
     // 1. Get configuration
     let database_url = std::env::var("DATABASE_URL")
-        .expect("请设置 DATABASE_URL 环境变量");
-        // "Please set the DATABASE_URL environment variable"
+        .expect("Please set the DATABASE_URL environment variable");
 
     // 2. 连接数据库
     // 2. Connect to the database
@@ -108,8 +106,7 @@ async fn main() -> LLMResult<()> {
             std::io::stdin().read_line(&mut session_id_input).unwrap();
 
             let session_id = Uuid::parse_str(session_id_input.trim())
-                .expect("无效的 UUID 格式");
-                // "Invalid UUID format"
+                .expect("Invalid UUID format");
 
             info!("使用现有会话: ID = {}", session_id);
             // Using existing session: ID = {}
@@ -121,8 +118,7 @@ async fn main() -> LLMResult<()> {
                 session_id
             )
         }
-        _ => panic!("无效选择"),
-        // _ => panic!("Invalid choice")
+        _ => panic!("Invalid choice"),
     };
 
     // 5. 开始对话循环
